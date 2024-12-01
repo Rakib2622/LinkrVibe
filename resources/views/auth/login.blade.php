@@ -1,47 +1,71 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@include('frontend.partial.header')
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<!--Body Content--> 
+<div id="page-content">
+    <!--Page Title-->
+    <div class="page section-header text-center" >
+        <div class="page-title">
+            <div class="wrapper">
+                <h1 class="page-width">Login</h1>
+            </div>
         </div>
+    </div>
+    <!--End Page Title-->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
+                <div class="mb-4">
+                   <form method="POST" action="{{ route('login') }}" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">    
+                      @csrf
+                      <div class="row">
+                        <!-- Email Address -->
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="CustomerEmail">Email</label>
+                                <input type="email" name="email" placeholder="" id="CustomerEmail" class="form-control" :value="old('email')" required autofocus autocomplete="username">
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            </div>
+                        </div>
+                        
+                        <!-- Password -->
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="CustomerPassword">Password</label>
+                                <input type="password" name="password" placeholder="" id="CustomerPassword" class="form-control" required autocomplete="current-password">
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            </div>
+                        </div>
+                      </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+                      <!-- Remember Me -->
+                      <div class="form-group">
+                          <label for="remember_me" class="inline-flex items-center">
+                              <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                              <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                          </label>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="text-center col-12">
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn mb-3">{{ __('Sign In') }}</button>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            <!-- Forgot Password and Register Links -->
+                            <p class="mb-4">
+                                @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}" id="RecoverPassword">Forgot your password?</a> &nbsp; | &nbsp;
+                                @endif
+                                <a href="{{ route('register') }}" id="customer_register_link">Create account</a>
+                            </p>
+                        </div>
+                     </div>
+                   </form>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
+<!--End Body Content-->
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+@include('frontend.partial.footer')
