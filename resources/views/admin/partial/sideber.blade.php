@@ -39,12 +39,26 @@
                     </ul>
                 </li>
 
+
+
                 <li>
-                    <a href="{{route('admin.order-history')}}">
-                        <i data-feather="home"></i>
-                        <span data-key="t-dashboard">orders</span>
+                    <a href="{{ route('admin.shipping.index') }}">
+                        <i data-feather="truck"></i> <!-- Changed icon for Order History -->
+                        <span data-key="t-dashboard">Shipping</span>
                     </a>
                 </li>
+                
+                <li>
+                    <a href="{{ route('admin.order-history') }}">
+                        <i data-feather="shopping-cart"></i> <!-- Changed icon for Order History -->
+                        <span data-key="t-dashboard">Orders History</span>
+                    </a>
+                </li>
+                
+                
+
+            
+                
                 
 
                 <li>

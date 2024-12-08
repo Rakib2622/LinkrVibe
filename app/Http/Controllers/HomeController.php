@@ -3,18 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProductCategory;
-use Illuminate\Http\Request;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
-{
-    // Fetch all categories along with their products
-    $categories = ProductCategory::with('products')->get();
+    {
+        // Fetch all categories along with their products
+        $categories = ProductCategory::with('products')->get();
 
-    // Pass categories and products to the view
-    return view('frontend.dashboard', compact('categories'));
-}
+        // Fetch best-selling products
+        $bestSellingProducts = Product::inRandomOrder()
+            ->take(5) // Fetch 5 random products
+            ->get();
+
+        // Pass categories, products, and best-selling products to the view
+        return view('frontend.dashboard', compact('categories', 'bestSellingProducts'));
+    }
     
 
     public function about(){

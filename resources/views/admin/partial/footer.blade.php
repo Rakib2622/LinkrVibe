@@ -153,6 +153,16 @@
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
 
+
+<script>
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "timeOut": "5000",
+    };
+</script>
+
 <!-- JAVASCRIPT -->
 <script src="/dash/assets/js/jquery.min.js"></script>
 <script src="/dash/assets/js/bootstrap.bundle.min.js"></script>
@@ -173,6 +183,7 @@
 <script src="/dash/assets/js/dashboard.init.js"></script>
 
 <script src="/dash/assets/js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 </body>
 

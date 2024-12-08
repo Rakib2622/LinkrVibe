@@ -1,5 +1,3 @@
-<!-- resources/views/admin/order-history/show.blade.php -->
-
 @include('admin.partial.header')
 @include('admin.partial.sideber')
 
@@ -14,8 +12,8 @@
             <p><strong>Email:</strong> {{ $order->customer_email }}</p>
             <p><strong>Phone:</strong> {{ $order->customer_phone }}</p>
             <p><strong>Address:</strong> {{ $order->address }}</p>
-            <p><strong>Country:</strong> {{ $order->country }}</p>
-            <p><strong>City:</strong> {{ $order->city }}</p>
+            <p><strong>Country:</strong> {{ $order->country->name ?? 'N/A' }}</p>
+            <p><strong>City:</strong> {{ $order->city->name ?? 'N/A' }}</p>
             <p><strong>Zipcode:</strong> {{ $order->zipcode }}</p>
 
             <h3>Order Items</h3>
@@ -40,19 +38,19 @@
                                 @foreach ($item->customFields as $customFieldAnswer)
                                     <p><strong>{{ $customFieldAnswer->customField->field_name }}:</strong>
                                         @if ($customFieldAnswer->answer_text)
-                                            {{ $customFieldAnswer->answer_text }}
-                                        @elseif ($customFieldAnswer->answer_image)
-                                            @php
-                                                $imagePath = 'storage/' . $customFieldAnswer->answer_image; // Assuming the image is stored in public/storage
-                                            @endphp
-                                            <img src="{{ asset($imagePath) }}" alt="Image" width="100">
+                                            {{-- Check if answer_text starts with "custom_fields/" --}}
+                                            @if (str_starts_with($customFieldAnswer->answer_text, 'custom_fields/'))
+                                                {{-- Display image if it starts with custom_fields/ --}}
+                                                <img src="{{ asset('storage/' . $customFieldAnswer->answer_text) }}" alt="Image" width="100">
+                                            @else
+                                                {{-- Display text if it doesn't start with custom_fields/ --}}
+                                                {{ $customFieldAnswer->answer_text }}
+                                            @endif
                                         @else
                                             <span>No answer provided</span>
                                         @endif
                                     </p>
                                 @endforeach
-
-
                             </td>
                         </tr>
                     @endforeach

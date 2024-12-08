@@ -6,7 +6,7 @@
 
 {{-- Main content --}}
 <div class="main-content">
-    <div class="page-content">
+    <div class="page-content"> 
         <div class="container-fluid">
             <h1 class="mb-4">Order History</h1>
 

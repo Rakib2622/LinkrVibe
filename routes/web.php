@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AproductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CategoryCustomFieldController;
 use App\Http\Controllers\Admin\OrderHistoryController;
+use App\Http\Controllers\Admin\ShippingController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -39,6 +40,11 @@ Route::post('/checkout', [OrderController::class, 'processCheckout'])->name('che
 Route::get('/order/success', [OrderController::class, 'success'])->name('order.success');
 Route::get('/order/failure', [OrderController::class, 'failure'])->name('order.failure');
 
+// Existing routes remain unchanged
+Route::post('/checkout/cod', [OrderController::class, 'processCOD'])->name('checkout.cod');
+
+
+Route::get('/cities/{countryId}', [OrderController::class, 'getCities'])->name('cities');
 
 
 //services
@@ -96,6 +102,26 @@ Route::middleware(['auth','verified', 'role:admin'])->prefix('admin')->name('adm
 
     // Route to show details of a specific order
     Route::get('/order-history/{order}', [OrderHistoryController::class, 'show'])->name('order-details');
+
+    Route::get('shipping', [ShippingController::class, 'index'])->name('shipping.index');
+    Route::get('shipping/create-country', [ShippingController::class, 'createCountry'])->name('shipping.createCountry');
+    Route::post('shipping/store-country', [ShippingController::class, 'storeCountry'])->name('shipping.storeCountry');
+    Route::get('shipping/edit-country/{country}', [ShippingController::class, 'editCountry'])->name('shipping.editCountry');
+    Route::put('shipping/update-country/{country}', [ShippingController::class, 'updateCountry'])->name('shipping.updateCountry');
+    Route::delete('shipping/delete-country/{country}', [ShippingController::class, 'destroyCountry'])->name('shipping.destroyCountry');
+    
+    Route::get('shipping/{country}/add-city', [ShippingController::class, 'showAddCityForm'])->name('shipping.addCity');
+    Route::post('shipping/{country}/add-city', [ShippingController::class, 'addCity'])->name('shipping.storeCity');
+    
+// Store or update the shipping charge
+
+// Show form to add a shipping charge
+Route::get('shipping/{country}/add-shipping-charge', [ShippingController::class, 'showAddShippingChargeForm'])->name('shipping.addShippingCharge');
+
+Route::post('shipping/{country}/add-shipping-charge', [ShippingController::class, 'addShippingCharge'])->name('shipping.storeShippingCharge');
+
+Route::put('shipping/{country}/update-shipping-charge', [ShippingController::class, 'updateShippingCharge'])->name('shipping.updateShippingCharge');
+
 });
 
 require __DIR__.'/auth.php';

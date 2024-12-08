@@ -15,22 +15,22 @@ class OrderHistoryController extends Controller
     public function index()
     {
         // Retrieve all orders with associated order items
-        $orders = Order::with('orderItems.product', 'orderItems.customFields')->orderBy('created_at', 'desc')->paginate(10);
+        $orders = Order::with('orderItems.product', 'orderItems.customFields')->orderBy('created_at', 'desc')->paginate(40);
         return view('admin.order-history.index', compact('orders'));
     }
 
     // Display the details of a specific order
   // app/Http/Controllers/Admin/OrderHistoryController.php
 
-public function show($orderId)
+  public function show($orderId)
 {
-    $order = Order::with([
-        'orderItems.product',
-        'orderItems.customFields.customField', // Eager load custom fields
-    ])->findOrFail($orderId);
+    $order = Order::with(['country', 'city', 'orderItems.product', 'orderItems.customFields.customField'])
+                  ->findOrFail($orderId);
+                  
 
     return view('admin.order-history.show', compact('order'));
 }
+  
 
 }
 

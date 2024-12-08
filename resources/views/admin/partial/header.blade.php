@@ -25,6 +25,12 @@
         <!-- App Css-->
         <link href="/dash/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+     
+
+
         <script src="https://cdn.tiny.cloud/1/m2osvun5mgff1sowvfyzl572luig231xieovjikgp0lnmq0z/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 

@@ -12,7 +12,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'customer_name', 'customer_email', 'customer_phone', 'country', 'city', 'zipcode', 
+        'customer_name', 'customer_email', 'customer_phone', 'country_id', 'city_id', 'zipcode', 
         'address', 'order_number', 'total_price', 'status', 'payment_details'
     ];
 
@@ -20,4 +20,15 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+    
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
 }

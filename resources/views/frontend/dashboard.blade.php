@@ -184,281 +184,64 @@
         
         <!--Featured Product-->
         <div class="product-rows section">
-        	<div class="container">
-            	<div class="row">
-                	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-        				<div class="section-header text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="section-header text-center">
                             <h2 class="h2">Best Seller</h2>
                             <p>Our most popular products based on sales</p>
                         </div>
-            		</div>
+                    </div>
                 </div>
                 <div class="grid-products">
-	                <div class="row">
+                    <div class="row">
+                        @foreach($bestSellingProducts as $product)
                         <div class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
-                        	<div class="grid-view_image">
-                                <!-- start product image -->
-                                <a href="product-accordion.html" class="grid-view-item__link">
-                                    <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="home/assets/images/product-images/product-image1.jpg" src="home/assets/images/product-images/product-image1.jpg" alt="image" title="product">
-                                    <!-- End image -->
+                            <div class="grid-view_image">
+                                <!-- Start product image -->
+                                <a href="{{ route('products.show', $product->id) }}" class="grid-view-item__link">
+                                    <!-- Primary image -->
+                                    <img class="grid-view-item__image primary blur-up lazyload" 
+                                        data-src="{{ $product->image1 ? asset('storage/' . $product->image1) : asset('default-placeholder.png') }}" 
+                                        src="{{ $product->image1 ? asset('storage/' . $product->image1) : asset('default-placeholder.png') }}" 
+                                        alt="{{ $product->name }}" 
+                                        title="{{ $product->name }}">
                                     <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="home/assets/images/product-images/product-image1-1.jpg" src="home/assets/images/product-images/product-image1-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                    <!-- product label -->
-                                    
-                                    <!-- End product label -->
+                                    <img class="grid-view-item__image hover blur-up lazyload" 
+                                        data-src="{{ $product->image2 ? asset('storage/' . $product->image2) : asset('default-placeholder.png') }}" 
+                                        src="{{ $product->image2 ? asset('storage/' . $product->image2) : asset('default-placeholder.png') }}" 
+                                        alt="{{ $product->name }}" 
+                                        title="{{ $product->name }}">
                                 </a>
-                                <!-- end product image -->
-                                <!--start product details -->
+                                <!-- End product image -->
+                                
+                                <!-- Start product details -->
                                 <div class="product-details hoverDetails text-center mobile">
-                                    <!-- product name -->
+                                    <!-- Product name -->
                                     <div class="product-name">
-                                        <a href="product-accordion.html">Edna Dress</a>
+                                        <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
                                     </div>
                                     <!-- End product name -->
-                                    <!-- product price -->
+                                    
+                                    <!-- Product price -->
                                     <div class="product-price">
-                                        <span class="old-price">$500.00</span>
-                                        <span class="price">$600.00</span>
+                                        @php
+                                            $oldPrice = ceil($product->price * 1.2); // Calculate old price as 20% extra
+                                        @endphp
+                                        <span class="old-price">${{ $oldPrice }}</span>
+                                        <span class="price">${{ number_format($product->price, 2) }}</span>
                                     </div>
                                     <!-- End product price -->
-                                    
-                                    <!-- product button -->
-                                    <div class="button-set">
-                                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
-                                        </form>
-                                        
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
-                        	<div class="grid-view_image">
-                                <!-- start product image -->
-                                <a href="product-accordion.html" class="grid-view-item__link">
-                                    <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="home/assets/images/product-images/product-image2.jpg" src="home/assets/images/product-images/product-image2.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="home/assets/images/product-images/product-image2-1.jpg" src="home/assets/images/product-images/product-image2-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                    <!-- product label -->
-                                    
-                                    <!-- End product label -->
-                                </a>
-                                <!-- end product image -->
-                                <!--start product details -->
-                                <div class="product-details hoverDetails text-center mobile">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="product-accordion.html">Elastic Waist Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="price">$748.00</span>
-                                    </div>
-                                    <!-- product button -->
-                                    <div class="button-set">
-                                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
-                                        </form>
-                                        
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                
-                              
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
-                        	<div class="grid-view_image">
-                                <!-- start product image -->
-                                <a href="product-accordion.html" class="grid-view-item__link">
-                                    <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="home/assets/images/product-images/product-image3.jpg" src="home/assets/images/product-images/product-image3.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="home/assets/images/product-images/product-image3-1.jpg" src="home/assets/images/product-images/product-image3-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                    <!-- product label -->
-                                    
-                                    <!-- End product label -->
-                                </a>
-                                <!-- end product image -->
-                                <!--start product details -->
-                                <div class="product-details hoverDetails text-center mobile">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="product-accordion.html">3/4 Sleeve Kimono Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="price">$550.00</span>
-                                    </div>
-                                    <!-- product button -->
-                                    <div class="button-set">
-                                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
-                                        </form>
-                                        
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
-                        	<div class="grid-view_image">
-                                <!-- start product image -->
-                                <a href="product-accordion.html" class="grid-view-item__link">
-                                    <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="home/assets/images/product-images/product-image4.jpg" src="home/assets/images/product-images/product-image4.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="home/assets/images/product-images/product-image4-1.jpg" src="home/assets/images/product-images/product-image4-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                    <!-- product label -->
-                                    <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
-                                    <!-- End product label -->
-                                </a>
-                                <!-- end product image -->
-                                <!--start product details -->
-                                <div class="product-details hoverDetails text-center mobile">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="product-accordion.html">Cape Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="old-price">$900.00</span>
-                                        <span class="price">$788.00</span>
-                                    </div>
-                                    <!-- product button -->
-                                    <div class="button-set">
-                                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
-                                        </form>
-                                        
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
-                        	<div class="grid-view_image">
-                                <!-- start product image -->
-                                <a href="product-accordion.html" class="grid-view-item__link">
-                                    <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="home/assets/images/product-images/product-image5.jpg" src="home/assets/images/product-images/product-image5.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="home/assets/images/product-images/product-image5-1.jpg" src="home/assets/images/product-images/product-image5-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                    <!-- product label -->
-                                    <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
-                                    <!-- End product label -->
-                                </a>
-                                <!-- end product image -->
-                                <!--start product details -->
-                                <div class="product-details hoverDetails text-center mobile">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="product-accordion.html">Paper Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="old-price">$900.00</span>
-                                        <span class="price">$788.00</span>
-                                    </div>
-                                    <!-- product button -->
-                                    <div class="button-set">
-                                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
-                                        </form>
-                                        
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                               
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
-                        	<div class="grid-view_image">
-                                <!-- start product image -->
-                                <a href="product-accordion.html" class="grid-view-item__link">
-                                    <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="home/assets/images/product-images/product-image16.jpg" src="home/assets/images/product-images/product-image16.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="home/assets/images/product-images/product-image16-1.jpg" src="home/assets/images/product-images/product-image16-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                </a>
-                                <!-- end product image -->
-                                <!--start product details -->
-                                <div class="product-details hoverDetails text-center mobile">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="product-accordion.html">Buttercup Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="price">$420.00</span>
-                                    </div>
-                                    <!-- product button -->
-                                    <div class="button-set">
-                                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
-                                        </form>
-                                        
-                                    </div>
-                                    <!-- end product button -->
                                 </div>
                                 <!-- End product details -->
                             </div>
                         </div>
-                	</div>
+                        @endforeach
+                    </div>
                 </div>
-           </div>
-        </div>	
+            </div>
+        </div>
+        
         <!--End Featured Product-->
         
         
