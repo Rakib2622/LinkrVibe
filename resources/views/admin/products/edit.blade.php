@@ -46,6 +46,8 @@
                     <textarea name="long_description" id="long_description" class="form-control">{{ $product->long_description }}</textarea>
                 </div> --}}
 
+                
+
                 <div class="mb-3">
                     <label for="long_description" class="form-label">Long Description</label>
                     <textarea name="long_description" id="long_description" class="form-control">{{ old('long_description', $product->long_description ?? '') }}</textarea>
@@ -78,6 +80,7 @@
         height: 300, // Set the height of the editor
         branding: false, // Remove TinyMCE branding
     });
+    
 </script>
 
 

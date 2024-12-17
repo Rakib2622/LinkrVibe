@@ -70,7 +70,7 @@
                             @foreach ($cart as $item)
                                 <tr>
                                     <td>{{ $item['name'] }}</td>
-                                    <td>${{ number_format($item['price'], 2) }}</td>
+                                    <td>€{{ number_format($item['price'], 2) }}</td>
                                     <td>{{ $item['quantity'] }}</td>
                                 </tr>
                             @endforeach
@@ -80,14 +80,14 @@
                     <div class="row">
                         <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Shipping Charge</strong></span>
                         <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right shipping-charge">
-                            <span class="money">$0.00</span>
+                            <span class="money">€0.00</span>
                         </span>
                     </div>
 
                     <div class="row">
                         <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Total</strong></span>
                         <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right cart__total">
-                            <span class="money">${{ number_format($subtotal, 2) }}</span>
+                            <span class="money">€{{ number_format($subtotal, 2) }}</span>
                         </span>
                     </div>
 
@@ -126,8 +126,8 @@
         }
 
         // Update shipping charge and total
-        document.querySelector('.shipping-charge .money').textContent = `$${parseFloat(shippingCharge).toFixed(2)}`;
-        let subtotal = parseFloat(document.querySelector('.cart__total .money').textContent.replace('$', ''));
+        document.querySelector('.shipping-charge .money').textContent = `€${parseFloat(shippingCharge).toFixed(2)}`;
+        let subtotal = parseFloat(document.querySelector('.cart__total .money').textContent.replace('€', ''));
         document.querySelector('.cart__total .money').textContent = `$${(subtotal + parseFloat(shippingCharge)).toFixed(2)}`;
     });
 </script>

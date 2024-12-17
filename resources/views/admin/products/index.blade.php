@@ -27,7 +27,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category->name }}</td>
-                                <td>${{ $product->price }}</td>
+                                <td>€{{ $product->price }}</td>
                                 <td>
                                     @if ($product->image1)
                                         <img src="{{ asset('storage/' . $product->image1) }}" alt="{{ $product->name }}" width="50">

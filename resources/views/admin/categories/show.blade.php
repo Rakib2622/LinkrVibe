@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Name: {{ $category->name }}</h5>
-                    <p class="card-text">Description: {{ $category->description }}</p>
+                    <p class="card-text">How to order: {!! $category->description !!}</p>
                 </div>
             </div>
 

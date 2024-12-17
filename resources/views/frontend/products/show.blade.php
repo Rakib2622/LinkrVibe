@@ -19,8 +19,13 @@
         <div class="col-md-6">
             <h2 class="product-title">{{ $product->name }}</h2>
             <p class="short-description">{{ $product->short_description }}</p>
-            <p><strong>Price:</strong> ${{ number_format($product->price, 2) }}</p>
+            <p><strong>Price:</strong> €{{ number_format($product->price, 2) }}</p>
             <p><strong>Color:</strong> {{ $product->color }}</p>
+            @if($product->category)
+            <h2>How to Order:</h2>
+            <div>{!! $product->category->description !!}</div>
+            @endif
+
 
             <!-- Custom Fields -->
             @if($product->category && $product->category->customFields->count() > 0)
@@ -74,7 +79,7 @@
                             </a>
                             <div class="card-body text-center">
                                 <h5 class="card-title">{{ $similarProduct->name }}</h5>
-                                <p class="card-text">${{ number_format($similarProduct->price, 2) }}</p>
+                                <p class="card-text">€{{ number_format($similarProduct->price, 2) }}</p>
                                 <a href="{{ route('products.show', $similarProduct->id) }}" class="btn btn-outline-primary btn-sm">View Details</a>
                             </div>
                         </div>

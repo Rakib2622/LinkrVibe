@@ -28,7 +28,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $order->order_number }}</td>
                                 <td>{{ $order->customer_name }}</td>
-                                <td>${{ number_format($order->total_price, 2) }}</td>
+                                <td>€{{ number_format($order->total_price, 2) }}</td>
                                 <td>{{ ucfirst($order->status) }}</td>
                                 <td>
                                     <a href="{{ route('admin.order-details', $order->id) }}" class="btn btn-info btn-sm">View</a>

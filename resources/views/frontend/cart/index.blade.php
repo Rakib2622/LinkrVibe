@@ -84,7 +84,7 @@
                                     </td>
                                     <!-- Product Price -->
                                     <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money">${{ number_format($item['price'], 2) }}</span>
+                                        <span class="money">€{{ number_format($item['price'], 2) }}</span>
                                     </td>
                                     <!-- Quantity Update -->
                                     <td class="cart-flex-item text-right">
@@ -99,7 +99,7 @@
                                     <!-- Total Price -->
                                     <td class="text-right small--hide cart-price">
                                         <div>
-                                            <span class="money">${{ number_format($item['price'] * $item['quantity'], 2) }}</span>
+                                            <span class="money">€{{ number_format($item['price'] * $item['quantity'], 2) }}</span>
                                         </div>
                                     </td>
                                     <!-- Remove Button -->
@@ -137,7 +137,7 @@
                     <div class="row">
                         <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Subtotal</strong></span>
                         <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right">
-                            <span class="money">${{ number_format($subtotal, 2) }}</span>
+                            <span class="money">€{{ number_format($subtotal, 2) }}</span>
                         </span>
                     </div>
                     <div class="cart__shipping">Shipping & taxes calculated at checkout</div>

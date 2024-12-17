@@ -38,6 +38,12 @@
                         <li><a href="{{route('admin.products.create')}}" data-key="t-register">Add Product</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="{{ route('admin.contacts.index') }}">
+                        <i data-feather="grid"></i> <!-- Changed icon for Order History -->
+                        <span data-key="t-dashboard">Contacts</span>
+                    </a>
+                </li>
 
 
 
@@ -53,13 +59,7 @@
                         <i data-feather="shopping-cart"></i> <!-- Changed icon for Order History -->
                         <span data-key="t-dashboard">Orders History</span>
                     </a>
-                </li>
-                
-                
-
-            
-                
-                
+                </li>    
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">

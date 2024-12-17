@@ -19,13 +19,15 @@
     <link rel="stylesheet" href="/home/assets/css/style.css">
     <link rel="stylesheet" href="/home/assets/css/responsive.css">
     <script src="https://cdn.tiny.cloud/1/m2osvun5mgff1sowvfyzl572luig231xieovjikgp0lnmq0z/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body class="template-index belle template-index-belle">
-    <div id="pre-loader">
+    {{-- <div id="pre-loader">
         <img src="/home/assets/images/loader.gif" alt="Loading..." />
-    </div>
-    <div class="pageWrapper">
+    </div> --}}
+    {{-- <div class="pageWrapper"> --}}
         <!--Search Form Drawer-->
         {{-- <div class="search">
         <div class="search__form">
@@ -108,33 +110,13 @@
                                 <li class="lvl1 parent dropdown"><a href="{{ route('products') }}">Product</a>
                                 </li>
 
-                                <li class="lvl1 parent dropdown"><a href="{{ route('services') }}">Services <i
+                                <li class="lvl1 parent dropdown"><a href=#>Services <i
                                             class="anm anm-angle-down-l"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="cart-variant1.html" class="site-nav">Digital Menu board<i
-                                                    class="anm anm-angle-right-l"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="cart-variant1.html" class="site-nav">Variant1</a></li>
-                                                <li><a href="cart-variant2.html" class="site-nav">Variant2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="compare-variant1.html" class="site-nav">Restuarent POS<i
-                                                    class="anm anm-angle-right-l"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="compare-variant1.html" class="site-nav">POS1</a></li>
-                                                <li><a href="compare-variant2.html" class="site-nav">POS2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="lookbook1.html" class="site-nav">Restuarent Booking<i
-                                                    class="anm anm-angle-right-l"></i></a>
-                                            <ul>
-                                                <li><a href="lookbook1.html" class="site-nav">Style 1</a></li>
-                                                <li><a href="lookbook2.html" class="site-nav">Style 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="404.html" class="site-nav">Digital Business Card</a></li>
-                                        <li><a href="coming-soon.html" class="site-nav">Portfolio App <span
-                                                    class="lbl nm_label1">New</span> </a></li>
+                                        <li><a href="{{ route('services.dMB') }}" class="site-nav">Digital Menu board </a></li>
+                                        <li><a href="{{ route('services.qrPos') }}" class="site-nav">QR Menu Restuarent POS</a></li>
+                                        <li><a href="{{ route('services.nfc') }}" class="site-nav">NFC Business Card</a></li>
+                                        <li><a href="{{ route('services.gRC') }}" class="site-nav">Google Review Card</a></li>
                                     </ul>
                                 </li>
 
@@ -173,83 +155,24 @@
         <div class="mobile-nav-wrapper" role="navigation">
             <div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
             <ul id="MobileNav" class="mobile-nav">
-                <li class="lvl1 parent megamenu"><a href="{{ route('home') }}">Home <i
-                            class="anm anm-plus-l"></i></a>
+                <li class="lvl1 parent megamenu"><a href="{{ route('home') }}">Home </a>
                 </li>
 
-                <li class="lvl1 parent megamenu"><a href="{{ route('about') }}">About Us <i
-                            class="anm anm-plus-l"></i></a>
+                <li class="lvl1 parent megamenu"><a href="{{ route('about') }}">About Us </a>
                 </li>
 
-                
+                <li class="lvl1 parent megamenu"><a href="{{ route('products') }}">Products</a>
+                </li>
 
                 <li class="lvl1 parent megamenu"><a href="{{ route('services') }}">Services <i class="anm anm-plus-l"></i></a>
                   <ul>
-                    <li><a href="cart-variant1.html" class="site-nav">Digital Menu board <i
-                                  class="anm anm-plus-l"></i></a>
-                          <ul class="dropdown">
-                              <li><a href="cart-variant1.html" class="site-nav">Variant1</a></li>
-                              <li><a href="cart-variant2.html" class="site-nav">Variant2</a></li>
-                              <li><a href="cart-variant2.html" class="site-nav">Variant3</a></li>
-                          </ul>
-                      </li>
-                      <li><a href="compare-variant1.html" class="site-nav">Restuarent POS <i
-                                  class="anm anm-plus-l"></i></a>
-                          <ul class="dropdown">
-                              <li><a href="compare-variant1.html" class="site-nav">Variant1</a></li>
-                              <li><a href="compare-variant2.html" class="site-nav">Variant2</a></li>
-                          </ul>
-                      </li>
-
-                      <li><a href="compare-variant1.html" class="site-nav">Restuarent Booking <i
-                                  class="anm anm-plus-l"></i></a>
-                          <ul class="dropdown">
-                              <li><a href="compare-variant1.html" class="site-nav">Variant1</a></li>
-                              <li><a href="compare-variant2.html" class="site-nav">Variant2</a></li>
-                          </ul>
-                      </li>
-                      <li><a href="compare-variant1.html" class="site-nav">Digital Business Card
-                                  </a>
-                      </li>
-                       <li><a href="compare-variant1.html" class="site-nav">Portfolio App </a></li>
-                    </li>
-                </ul>
-
-                <li class="lvl1 parent megamenu"><a href="{{ route('products') }}">Products <i class="anm anm-plus-l"></i></a>
-                    <ul>
-                        <li><a href="cart-variant1.html" class="site-nav">NFC Business Card <i
-                                    class="anm anm-plus-l"></i></a>
-                            <ul class="dropdown">
-                                <li><a href="cart-variant1.html" class="site-nav">Variant1</a></li>
-                                <li><a href="cart-variant2.html" class="site-nav">Variant2</a></li>
-                                <li><a href="cart-variant2.html" class="site-nav">Variant3</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="compare-variant1.html" class="site-nav">NFC & QR Card <i
-                                    class="anm anm-plus-l"></i></a>
-                            <ul class="dropdown">
-                                <li><a href="compare-variant1.html" class="site-nav">Variant1</a></li>
-                                <li><a href="compare-variant2.html" class="site-nav">Variant2</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="compare-variant1.html" class="site-nav">Google Review Card <i
-                                    class="anm anm-plus-l"></i></a>
-                            <ul class="dropdown">
-                                <li><a href="compare-variant1.html" class="site-nav">Variant1</a></li>
-                                <li><a href="compare-variant2.html" class="site-nav">Variant2</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="compare-variant1.html" class="site-nav">NFC & QR Menu <i
-                                    class="anm anm-plus-l"></i></a>
-                        </li>
-                    </ul>
+                      <li><a href="{{ route('services.dMB') }}" class="site-nav">Digital Menu board </a></li>
+                      <li><a href="{{ route('services.qrPos') }}" class="site-nav">QR Menu Restuarent POS</a></li>
+                      <li><a href="{{ route('services.nfc') }}" class="site-nav">NFC Business Card</a></li>
+                      <li><a href="{{ route('services.gRC') }}" class="site-nav">Google Review Card</a></li>
+                 </ul>
                 </li>
-
-                
-                <li class="lvl1 parent megamenu"><a href="{{ route('contact') }}">Contact <i
-                  class="anm anm-plus-l"></i></a>
-                </li>
+                <li class="lvl1 parent megamenu"><a href="{{ route('contact') }}">Contact Us</a></li>
 
               
             </ul>

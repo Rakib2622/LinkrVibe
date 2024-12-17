@@ -14,11 +14,23 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/test-email', function () {
+    Mail::raw('This is a test email from your Laravel application.', function ($message) {
+        $message->to('sm.rakib.773@gmail.com')
+                ->subject('Test Email');
+    });
+
+    return 'Test email sent!';
+});
+
 Route::middleware(['web'])->group(function () {
 //Home page route
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
+Route::post('/contact', [HomeController::class, 'submitContact'])->name('contact.submit');
+
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/privacy',[HomeController::class, 'privacy'])->name('privacy');
 Route::get('/support',[HomeController::class, 'support'])->name('support');
@@ -49,7 +61,12 @@ Route::get('/cities/{countryId}', [OrderController::class, 'getCities'])->name('
 
 //services
 Route::get('/services',[ServicesController::class, 'index'])->name('services');
-Route::get('/services/{id}', [ServicesController::class, 'show'])->name('services.show');
+Route::get('/digital-menu-board', [ServicesController::class, 'digitalMenuBoard'])->name('services.dMB');
+Route::get('/google-review-card', [ServicesController::class, 'googleReviewCard'])->name('services.gRC');
+Route::get('/nfc-business-card', [ServicesController::class, 'nfcBusinessCard'])->name('services.nfc');
+Route::get('/qr-menu-restaurant-pos', [ServicesController::class, 'qrMenuRestaurantPos'])->name('services.qrPos');
+
+ 
 
 });
 
@@ -69,6 +86,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth','verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     // Admin Dashboard
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
+    //contacts
+    Route::get('/contacts', [AdminController::class, 'showContacts'])->name('contacts.index'); // Show all contact messages
+    Route::get('/contacts/{id}', [AdminController::class, 'viewContact'])->name('contacts.view'); // View a specific contact message
+    Route::post('/contacts/{id}/reply', [AdminController::class, 'replyContact'])->name('contacts.reply'); // Reply to a specific contact message
 
     // Product Management Routes
     Route::get('/products', [AproductController::class, 'index'])->name('products.index'); // Show all products

@@ -71,6 +71,7 @@
         branding: false, // Remove branding from the editor
         height: 300, // Set the height of the editor
     });
+    
 </script>
 
 @include('admin.partial.footer')

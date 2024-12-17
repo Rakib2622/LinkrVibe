@@ -97,7 +97,7 @@ class OrderController extends Controller
         foreach ($cart as $item) {
             $lineItems[] = [
                 'price_data' => [
-                    'currency' => 'usd',
+                    'currency' => 'eur',
                     'product_data' => [
                         'name' => $item['name'],
                     ],
@@ -110,7 +110,7 @@ class OrderController extends Controller
         // Add shipping charge to Stripe session
         $lineItems[] = [
             'price_data' => [
-                'currency' => 'usd',
+                'currency' => 'eur',
                 'product_data' => [
                     'name' => 'Shipping Charge',
                 ],

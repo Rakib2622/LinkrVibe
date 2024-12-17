@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="details">
                                         <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
-                                        <div class="product-price">${{ number_format($product->price, 2) }}</div>
+                                        <div class="product-price">€{{ number_format($product->price, 2) }}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -109,7 +109,7 @@
                                     <div class="product-labels rectangular">
                                         <span class="lbl on-sale">New</span>
                                     </div>
-                                    <form class="variants add" action="#">
+                                    <form class="variants add" action="{{ route('products.show', $product->id) }}">
                                         <button class="btn btn-addto-cart">View Product</button>
                                     </form>
                                 </div>
@@ -117,7 +117,7 @@
                                     <div class="product-name">
                                         <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
                                     </div>
-                                    <div class="product-price">${{ number_format($product->price, 2) }}</div>
+                                    <div class="product-price">€{{ number_format($product->price, 2) }}</div>
                                 </div>
                             </div>
                         @endforeach

@@ -32,8 +32,8 @@
                         <tr>
                             <td>{{ $item->product->name }}</td>
                             <td>{{ $item->quantity }}</td>
-                            <td>${{ number_format($item->price, 2) }}</td>
-                            <td>${{ number_format($item->price * $item->quantity, 2) }}</td>
+                            <td>€{{ number_format($item->price, 2) }}</td>
+                            <td>€{{ number_format($item->price * $item->quantity, 2) }}</td>
                             <td>
                                 @foreach ($item->customFields as $customFieldAnswer)
                                     <p><strong>{{ $customFieldAnswer->customField->field_name }}:</strong>
@@ -58,7 +58,7 @@
             </table>
 
             <h3>Order Summary</h3>
-            <p><strong>Total Price:</strong> ${{ number_format($order->total_price, 2) }}</p>
+            <p><strong>Total Price:</strong> €{{ number_format($order->total_price, 2) }}</p>
             <p><strong>Status:</strong> {{ ucfirst($order->status) }}</p>
 
             <a href="{{ route('admin.order-history') }}" class="btn btn-primary">Back to Order History</a>

@@ -13,10 +13,10 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
                 <div class="text-center mb-4">
-                    <h2 class="h2">Belle Multipurpose Bootstrap 4 Html Template</h2>
+                    <h2 class="h2">Welcome to Linkrvibe</h2>
                     <div class="rte-setting">
-                        <p><strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</strong></p>
-                        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                        <p><strong>Your one-stop solution for innovative digital products and services.</strong></p>
+                        <p>Linkrvibe was founded in 2023 with the mission of empowering businesses and individuals with cutting-edge digital tools. Based in Ireland, we specialize in creating solutions that seamlessly integrate technology and convenience, helping you stand out in the modern marketplace.</p>
                     </div>
                 </div>
                </div>
@@ -28,27 +28,26 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h2>Sed ut perspiciatis unde omnis iste natus error</h2>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain.</p>
-                <p>simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted.</p>
-                <p></p>
+                <h2>Our Services</h2>
+                <p>We provide a wide range of services to meet your digital and technological needs:</p>
+                <p>At Linkrvibe, we offer innovative and practical solutions to empower businesses and individuals alike. Our offerings include Digital Menu Boards—dynamic, visually appealing displays designed to enhance the modern dining experience; NFC Business Cards—a sleek, eco-friendly way to share your professional details instantly, perfect for networking in the digital age; and QR Menu Tabletops—streamlined, contactless dining experiences for restaurants and cafes. Additionally, we provide Google Review Cards, leveraging NFC and QR technology to effortlessly collect valuable customer feedback, and a Restaurant POS System tailored to streamline operations in the food industry.</p>
+                
             </div>
         </div>
         
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
-                <h2 class="h2">About Annimex Web</h2>
+                <h2 class="h2">About Our Founder</h2>
                 <div class="rte-setting"><p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong></p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                <p></p>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p></div>
+                <p>Our founder, Md Mehrajul Islam, is a visionary entrepreneur dedicated to innovation and excellence. With a passion for technology and customer-centric solutions, he established Linkrvibe to empower businesses with cutting-edge tools. His leadership, creativity, and commitment drive the company's mission to simplify lives and revolutionize the digital landscape.</p>
+                </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                 <h2 class="h2">Contact Us</h2>
                 <ul class="addressFooter">
                     <li><i class="icon anm anm-map-marker-al"></i><p>55 Gallaxy Enque, 2568 steet, 23568 NY</p></li>
-                    <li class="phone"><i class="icon anm anm-phone-s"></i><p>(440) 000 000 0000</p></li>
-                    <li class="email"><i class="icon anm anm-envelope-l"></i><p>sales@yousite.com</p></li>
+                    <li><i class="icon anm anm-phone-s"></i><p>(+353)833421958</p></li>
+                    <li><i class="icon anm anm-envelope-l"></i><p>info@linkrvibe.com</p></li>
                 </ul>
                 <hr />
                 <ul class="list--inline site-footer__social-icons social-icons">

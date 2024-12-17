@@ -18,6 +18,7 @@ return new class extends Migration
         $table->decimal('price', 8, 2);
         $table->string('color')->nullable();
         $table->text('short_description')->nullable();
+        
         $table->longText('long_description')->nullable();
         $table->string('image1')->nullable();
         $table->string('image2')->nullable();

@@ -15,13 +15,15 @@
                     <h2>{{ $product->name }}</h2>
 
                     <h4>Price:</h4>
-                    <p>${{ $product->price }}</p>
+                    <p>€{{ $product->price }}</p>
 
                     <h4>Color:</h4>
                     <p>{{ $product->color ?? 'N/A' }}</p>
 
                     <h4>Short Description:</h4>
                     <p>{{ $product->short_description ?? 'N/A' }}</p>
+
+                    
 
                     <h4>Long Description:</h4>
                     <div>{!! $product->long_description !!}</div>

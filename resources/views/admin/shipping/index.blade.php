@@ -36,7 +36,7 @@
                                 </td>
                                 <td>
                                     @if ($country->shippingCharges)
-                                        ${{ $country->shippingCharges->charge }}
+                                    €{{ $country->shippingCharges->charge }}
                                     @else
                                         <span class="text-danger">Not set</span>
                                     @endif

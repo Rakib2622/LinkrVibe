@@ -31,47 +31,65 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 mb-4">
                 <h2>Drop Us A Line</h2>
-                <p>Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500 </p>
+                <p>"We would love to hear from you! Whether you have a question, feedback, or need assistance, our team is here to help."</p>
                 <div class="formFeilds contact-form form-vertical">
-                  <form action="http://annimexweb.com/items/belle/assets/php/mail.php" method="post"  id="contact_form" class="contact-form">	
-                  <div class="row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="form-group">
-                          <input type="text" id="ContactFormName" name="name" placeholder="Name" value="" required="">
+                    <!-- Display success message -->
+                    @if(session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+                
+                    <!-- Display validation errors -->
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="form-group">
-                        <input type="email" id="ContactFormEmail" name="email" placeholder="Email" value="" required="">                        	
+                    @endif
+                
+                    <form action="{{ route('contact.submit') }}" method="post" id="contact_form" class="contact-form">	
+                        @csrf
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" id="ContactFormName" name="name" placeholder="Name" value="{{ old('name') }}" required>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="email" id="ContactFormEmail" name="email" placeholder="Email" value="{{ old('email') }}" required>                        	
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                          <div class="form-group">
-                        <input required="" type="tel" id="ContactFormPhone" name="phone" pattern="[0-9\-]*" placeholder="Phone Number" value="">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="tel" id="ContactFormPhone" name="phone" pattern="[0-9\-]*" placeholder="Phone Number" value="{{ old('phone') }}">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" id="ContactSubject" name="subject" placeholder="Subject" value="{{ old('subject') }}" required>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                          <div class="form-group">
-                        <input required="" type="text" id="ContactSubject" name="subject" placeholder="Subject" value="">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <textarea rows="10" id="ContactFormMessage" name="message" placeholder="Your Message" required>{{ old('message') }}</textarea>
+                                </div>
+                            </div>  
                         </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="form-group">
-                        <textarea required="" rows="10" id="ContactFormMessage" name="message" placeholder="Your Message"></textarea>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <input type="submit" class="btn" value="Send Message">
+                            </div>
                         </div>
-                    </div>  
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        <input type="submit" class="btn" value="Send Message">
-                    </div>
-                 </div>
-                 </form>
+                    </form>
                 </div>
+                
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="open-hours">

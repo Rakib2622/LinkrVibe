@@ -48,7 +48,7 @@
                                                             <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
                                                         </div>
                                                         <div class="product-price">
-                                                            <span class="price">${{ number_format($product->price, 2) }}</span>
+                                                            <span class="price">€{{ number_format($product->price, 2) }}</span>
                                                         </div>
                                                     </div>
                                                     <!-- End product details -->
@@ -228,8 +228,8 @@
                                         @php
                                             $oldPrice = ceil($product->price * 1.2); // Calculate old price as 20% extra
                                         @endphp
-                                        <span class="old-price">${{ $oldPrice }}</span>
-                                        <span class="price">${{ number_format($product->price, 2) }}</span>
+                                        <span class="old-price">€{{ number_format($oldPrice,2) }}</span>
+                                        <span class="price">€{{ number_format($product->price, 2) }}</span>
                                     </div>
                                     <!-- End product price -->
                                 </div>
