@@ -17,12 +17,12 @@
 
         <!-- Right Section: Product Details -->
         <div class="col-md-6">
-            <h2 class="product-title">{{ $product->name }}</h2>
+            <h1 class="product-title">{{ $product->name }}</h1>
             <p class="short-description">{{ $product->short_description }}</p>
             <p><strong>Price:</strong> €{{ number_format($product->price, 2) }}</p>
             <p><strong>Color:</strong> {{ $product->color }}</p>
             @if($product->category)
-            <h2>How to Order:</h2>
+            <h1>How to Order:</h1>
             <div>{!! $product->category->description !!}</div>
             @endif
 

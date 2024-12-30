@@ -70,84 +70,61 @@
         
         <!--Collection Box slider-->
 
-        <div class="section-header text-center">
-            <h2 class="h2">Our Services</h2>
+        <div class="section-header text-center" style="background: #f6f4f4; padding:20px">
+            <h2>Our Services</h2>
             <p>Browse the huge variety of our service</p>
         </div>
 
-        <div class="section feature-content">
-            <div class="container">
-                <div class="row">
-                    <div class="feature-row">
-                        <div class="col-12 col-sm-12 col-md-6 feature-row__item">
-                            <img src="home/assets/images/Untitled-design.gif" alt="NFC & QR Code Tabletop Menus" title="NFC & QR Code Tabletop Menus" />
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-6 feature-row__item">
-                            <div class="row-text">
-                                <h1 class="h1">NFC & QR Code Tabletop Menus</h1>
-                                <h2 class="h2">Complete POS & Table Ordering System!</h2>
-                                <div class="rte-setting featured-row__subtext">
-                                    <p>Upgrade your restaurant's dining experience with our NFC and QR code-enabled tabletop menus! Allow customers to easily browse your menu, place orders, and make payments directly from their smartphones.</p>
-                                    
-                                </div>
-                                <a href="#" class="btn">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+        <div class="slider desktop-padding" style="display: flex; align-items: center; background: linear-gradient(to right, #ffffff, white);">
+            <div class="slider-text">
+                <h3>Complete POS & Table Ordering System!</h3>
+                <h1>NFC & QR Code Tabletop Menus</h1>
+                <p>
+                    Upgrade your restaurant's dining experience with our NFC and QR code-enabled tabletop menus! Allow customers to easily browse your menu, place orders, and make payments directly from their smartphones.
+                </p>
+                <button onclick="contactNow()" class="btn-primary">Contact Now</button>
+                <button onclick="tryDemo()" class="btn-secondary">Try Demo</button>
+            </div>
+            <div class="slider-image">
+                <img src="home/assets/images/Untitled-design.gif" alt="NFC & QR Code Tabletop Menus">
             </div>
         </div>
         
-        <!-- Second Section: Adjust ordering for mobile -->
-        <div class="section feature-content">
-            <div class="container">
-                <div class="row">
-                    <div class="feature-row">
-                        <!-- Text section will appear after the image on mobile -->
-                        <div class="col-12 col-sm-12 col-md-6 feature-row__item order-2 order-sm-2 order-md-1">
-                            <div class="row-text">
-                                <h1 class="h1">Digital Menu Board</h1>
-                                <h2 class="h2">Transform Your Restaurant’s Menu with a Custom Digital Menu Board!</h2>
-                                <div class="rte-setting featured-row__subtext">
-                                    <p>Digital menu is clean, easy to read, and provides an interactive experience for diners. Custom Digital Menu Board Design Service for Restaurants. 
-                                    </p>
-                                    
-                                </div>
-                                <a href="#" class="btn">Shop Now</a>
-                            </div>
-                        </div>
-                        <!-- Image section will appear first on mobile -->
-                        <div class="col-12 col-sm-12 col-md-6 feature-row__item order-1 order-sm-1 order-md-2">
-                            <img src="home/assets/images/Digital-Menu-Board.png" alt="Fast Fashion Only available at BElle" title="Fast Fashion Only available at BElle" />
-                        </div>
-                    </div>
-                </div>
+        <!-- Second Section -->
+        <div class="slider desktop-padding" style="display: flex; align-items: center; background: #f9f9f9;">
+            <div class="slider-image">
+                <img src="\home\assets\images\dmb\menuslider.gif" alt="Digital Menu Board">
+            </div>
+            <div class="slider-text">
+                <h3>Digital Menu Board</h3>
+                <h1>Transform Your Restaurant’s Menu!</h1>
+                <p>
+                    Digital menus are clean, easy to read, and provide an interactive experience for diners. Perfect for modern restaurants!
+                </p>
+                <button onclick="contactNow()" class="btn-primary">Contact Now</button>
             </div>
         </div>
         
-        <div class="section feature-content">
-            <div class="container">
-                <div class="row">
-                    <div class="feature-row">
-                        <div class="col-12 col-sm-12 col-md-6 feature-row__item">
-                            <img src="home/assets/images/5-Pack-of-Google-review-card.png" alt="Fast Fashion Only available at BElle" title="Fast Fashion Only available at BElle" />
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-6 feature-row__item">
-                            <div class="row-text">
-                                <h1 class="h1">Google Review Card</h1>
-                                <h2 class="h2">Transform Your Restaurant’s Menu with a Custom Digital Menu Board!</h2>
-                                <div class="rte-setting featured-row__subtext">
-                                    <p>With our NFC-enabled Google Review Cards, you can encourage walk-in customers to leave a review with just a simple tap. It’s never been this easy to collect valuable feedback that will boost your business visibility on Google Maps!
-                                    </p>
-                                    
-                                </div>
-                                <a href="#" class="btn">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Third Section -->
+        <div class="slider desktop-padding" style="display: flex; align-items: center; background: linear-gradient(to right, #ffffff, #f0f0f0);">
+            <div class="slider-text">
+                <h3>Google Review Card</h3>
+                <h1>Boost Your Business Visibility!</h1>
+                <p>
+                    With our NFC-enabled Google Review Cards, encourage walk-in customers to leave a review with just a simple tap. Easy and effective!
+                </p>
+                <button onclick="contactNow()" class="btn-primary">Contact Now</button>
+            </div>
+            <div class="slider-image">
+                <img src="home/assets/images/5-Pack-of-Google-review-card.png" alt="Google Review Card">
             </div>
         </div>
+        
+
+
+
+
         
         <!--End Collection Box slider-->
         
@@ -279,6 +256,143 @@
         </div>
         <!--End Store Feature-->
     </div>
+
+    <div class="testimonials" style="padding: 20px; margin-top:10px; text-align: center; background-color: #e6e6e6;">
+        <h2 style="font-size: 2em; margin-bottom: 20px;">What Our Clients Say</h2>
+        <div class="testimonial-slider" style="display: flex; overflow-x: scroll; gap: 20px; padding: 20px;">
+            @foreach ($testimonials as $testimonial)
+                <div style="min-width: 350px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                    <p style="font-size: 1.2em;">{{ $testimonial['message'] }}</p>
+                    <strong>- {{ $testimonial['name'] }}</strong>
+                </div>
+            @endforeach
+        </div>
+    </div>
     <!--End Body Content-->
+
+
+    <script>
+        function contactNow() {
+            window.location.href = '/contact';
+        }
+    
+        function tryDemo() {
+            window.location.href = "https://menu.smartapcard.com/"; // Replace this with the actual demo URL
+        }
+    </script>
     
 @include('frontend.partial.footer')
+
+<style>
+    /* General Styles */
+    .slider {
+        display: flex;
+        margin: 0 auto;
+        max-width: 95%; /* Centralize layout */
+    }
+    
+    /* Add padding for desktop view */
+    .desktop-padding {
+        padding: 20px 30px; /* Outer padding for desktop view */
+    }
+    
+    /* Content styling */
+    .slider-text,
+    .slider-image {
+        flex: 1;
+        padding: 20px; /* Inner padding for consistent spacing */
+    }
+    
+    .slider-text h3 {
+        font-size: 2em;
+        font-family: cursive;
+        margin-bottom: 20px;
+    }
+    
+    .slider-text h1 {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    
+    .slider-text p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    
+    /* Button Styles */
+    .btn-primary,
+    .btn-secondary {
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+        background: rgb(233, 104, 24);
+        color: white;
+    }
+    
+    .btn-primary:hover {
+        background: orange;
+    }
+    
+    .btn-secondary {
+        background: rgb(47, 137, 2);
+        color: white;
+        margin-left: 10px;
+    }
+    
+    .btn-secondary:hover {
+        background: orange;
+    }
+
+    .store-info {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0; 
+    margin: 0;
+    list-style: none;
+    justify-content: space-between; /* Adjust spacing between items */
+}
+
+.store-info li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    flex: 1 1 25%; /* Default: four items in one line */
+    box-sizing: border-box;
+}
+    
+    /* Responsive styles for mobile */
+    @media (max-width: 768px) {
+        .slider {
+            flex-direction: column;
+            text-align: center;
+        }
+    
+        .desktop-padding {
+            padding: 5px;
+        }
+    
+        .slider-image {
+            order: -1;
+            text-align: center;
+        }
+    
+        .slider-image img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .store-info li {
+        flex: 1 1 45%; /* Two items in one row */
+    }
+    }
+    </style>

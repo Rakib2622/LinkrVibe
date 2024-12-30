@@ -8,6 +8,8 @@ use App\Models\OrderItem;
 use App\Models\OrderItemCustomFieldAnswer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Mail\OrderCompletedMail;
+use Illuminate\Support\Facades\Mail;
 use Stripe\Stripe;
 use Stripe\Checkout\Session as StripeSession;
 
@@ -196,68 +198,48 @@ class OrderController extends Controller
 
     // Success page after a successful order
     public function success()
-    {
-        $cart = session('cart', []);
-        $checkoutDetails = session('checkout_details', []);
-        $shippingCharge = session('shipping_charge', 0);
+{
+    $cart = session('cart', []);
+    $checkoutDetails = session('checkout_details', []);
+    $shippingCharge = session('shipping_charge', 0);
 
-        if (empty($cart) || empty($checkoutDetails)) {
-            return redirect()->route('cart.index')->with('error', 'Your cart or checkout details are missing.');
-        }
-
-        $subtotal = session('subtotal', 0);
-        $total = session('total', $subtotal + $shippingCharge);
-
-        // Create the order
-        $order = Order::create(array_merge($checkoutDetails, [
-            'country_id' => $checkoutDetails['country'], // Use the ID passed in the request
-            'city_id' => $checkoutDetails['city'], // Use the ID passed in the request
-            'order_number' => uniqid('ORDER_'),
-            'total_price' => $total,
-            'status' => 'completed',
-            'payment_details' => json_encode(['method' => 'Stripe']),
-        ]));
-
-        // Save order items and custom field answers
-        foreach ($cart as $item) {
-            // Create OrderItem
-            $orderItem = OrderItem::create([
-                'order_id' => $order->id,
-                'product_id' => $item['id'],
-                'quantity' => $item['quantity'],
-                'custom_fields' => json_encode($item['custom_fields']),
-                'price' => $item['price'],
-            ]);
-
-            // Save custom field answers for each item
-            if (!empty($item['custom_fields'])) {
-                foreach ($item['custom_fields'] as $fieldId => $answer) {
-                    // Check if the custom field answer is a text or image
-                    if (is_string($answer)) {
-                        // If the answer is text, store it in 'answer_text'
-                        OrderItemCustomFieldAnswer::create([
-                            'order_item_id' => $orderItem->id,
-                            'field_id' => $fieldId,
-                            'answer_text' => $answer, // Store the answer in 'answer_text'
-                        ]);
-                    } elseif (is_array($answer) && isset($answer['image_path'])) {
-                        // If the answer is an image, store it in 'answer_image'
-                        OrderItemCustomFieldAnswer::create([
-                            'order_item_id' => $orderItem->id,
-                            'field_id' => $fieldId,
-                            'answer_image' => $answer['image_path'], // Store the image path in 'answer_image'
-                        ]);
-                    }
-                }
-            }
-        }
-
-        // Clear the session
-        session()->forget('cart');
-        session()->forget('checkout_details');
-
-        return redirect()->route('products')->with('success', 'Order placed successfully!');
+    if (empty($cart) || empty($checkoutDetails)) {
+        return redirect()->route('cart.index')->with('error', 'Your cart or checkout details are missing.');
     }
+
+    $subtotal = session('subtotal', 0);
+    $total = session('total', $subtotal + $shippingCharge);
+
+    // Create the order
+    $order = Order::create(array_merge($checkoutDetails, [
+        'country_id' => $checkoutDetails['country'],
+        'city_id' => $checkoutDetails['city'],
+        'order_number' => uniqid('ORDER_'),
+        'total_price' => $total,
+        'status' => 'completed',
+        'payment_details' => json_encode(['method' => 'Stripe']),
+    ]));
+
+    // Save order items
+    foreach ($cart as $item) {
+        OrderItem::create([
+            'order_id' => $order->id,
+            'product_id' => $item['id'],
+            'quantity' => $item['quantity'],
+            'custom_fields' => json_encode($item['custom_fields']),
+            'price' => $item['price'],
+        ]);
+    }
+
+    // Send confirmation email
+    Mail::to($order->customer_email)->send(new OrderCompletedMail($order));
+
+    // Clear the session
+    session()->forget('cart');
+    session()->forget('checkout_details');
+
+    return redirect()->route('products')->with('success', 'Order placed successfully!');
+}
 
     // Failure page if payment fails
     public function failure()

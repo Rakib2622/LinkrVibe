@@ -40,10 +40,17 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.contacts.index') }}">
-                        <i data-feather="grid"></i> <!-- Changed icon for Order History -->
+                        <i data-feather="mail"></i> <!-- "mail" icon for Contacts -->
                         <span data-key="t-dashboard">Contacts</span>
                     </a>
                 </li>
+                
+                <li>
+                    <a href="{{ route('admin.newsletters.index') }}">
+                        <i data-feather="send"></i> <!-- "send" icon for NewsLetter -->
+                        <span data-key="t-dashboard">NewsLetter</span>
+                    </a>
+                </li>                
 
 
 
@@ -61,22 +68,12 @@
                     </a>
                 </li>    
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i data-feather="file-text"></i>
-                        <span data-key="t-pages">Pages</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter.html" data-key="t-starter-page">Starter Page</a></li>
-                        <li><a href="pages-404.html" data-key="t-error-404">Error 404</a></li>
-                        
-                    </ul>
-                </li>
+
 
     
                 
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="share-2"></i>
                         <span data-key="t-multi-level">Multi Level</span>
@@ -91,7 +88,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
             </ul>
 

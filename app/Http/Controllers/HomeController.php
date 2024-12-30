@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Newsletter;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -20,8 +21,17 @@ class HomeController extends Controller
             ->take(5) // Fetch 5 random products
             ->get();
 
+            $testimonials = [
+                ['message' => 'Great service!', 'name' => 'John Doe'],
+                ['message' => 'My customers love the new menu board!', 'name' => 'Jane Smith'],
+                ['message' => 'Highly recommended!', 'name' => 'Alex Brown'],
+                ['message' => 'Great service!', 'name' => 'John Doe'],
+                ['message' => 'My customers love the new menu board!', 'name' => 'Jane Smith'],
+                ['message' => 'Highly recommended!', 'name' => 'Alex Brown']
+            ];
+
         // Pass categories, products, and best-selling products to the view
-        return view('frontend.dashboard', compact('categories', 'bestSellingProducts'));
+        return view('frontend.dashboard', compact('categories', 'bestSellingProducts', 'testimonials'));
     }
     
 
@@ -49,6 +59,22 @@ class HomeController extends Controller
 
         // Redirect back with success message
         return back()->with('success', 'Your message has been sent successfully. We will get back to you shortly!');
+    }
+
+    public function subscribeNewsletter(Request $request)
+    {
+        // Validate the email input
+        $request->validate([
+            'email' => 'required|email|unique:newsletters,email',
+        ]);
+
+        // Store the email in the database
+        Newsletter::create([
+            'email' => $request->input('email'),
+        ]);
+
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Thank you for subscribing to our newsletter!');
     }
 
 

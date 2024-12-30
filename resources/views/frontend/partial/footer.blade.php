@@ -2,23 +2,30 @@
  <footer id="footer">
     <div class="newsletter-section">
         <div class="container">
+            
             <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-7 w-100 d-flex justify-content-start align-items-center">
                         <div class="display-table">
                             <div class="display-table-cell footer-newsletter">
                                 <div class="section-header text-center">
-                                    <label class="h2"><span>sign up for </span>newsletter</label>
+                                    <label class="h2"><span>Sign up for </span>Newsletter</label>
                                 </div>
-                                <form action="#" method="post">
+                                <!-- Display Success Message -->
+                        
+                                <form action="{{ route('newsletter.subscribe') }}" method="post">
+                                    @csrf
                                     <div class="input-group">
-                                        <input type="email" class="input-group__field newsletter__input" name="EMAIL" value="" placeholder="Email address" required="">
+                                        <input type="email" class="input-group__field newsletter__input" name="email" value="" placeholder="Email address" required>
                                         <span class="input-group__btn">
-                                            <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe"><span class="newsletter__submit-text--large">Subscribe</span></button>
+                                            <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                                                <span class="newsletter__submit-text--large">Subscribe</span>
+                                            </button>
                                         </span>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-5 d-flex justify-content-end align-items-center">
                         <div class="footer-social">

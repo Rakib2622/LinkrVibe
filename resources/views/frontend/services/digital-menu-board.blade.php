@@ -3,11 +3,11 @@
 {{-- Main Content --}}
 <div class="digital-menu-board">
     {{-- Slider Section --}}
-    <div class="slider" style="display: flex; align-items: center; background: linear-gradient(to right, orange, white); padding: 20px;">
+    <div class="slider" style="display: flex; align-items: center; background: linear-gradient(to right, rgb(250, 250, 250), white); padding: 10px;">
         <div class="slider-text" style="flex: 1; color: white;">
             <h1 style="font-size: 2.5em; font-weight: bold; margin-bottom: 20px;">Transform Your Restaurant’s Menu with a Custom Digital Menu Board!</h1>
             <p style="font-size: 1.2em; margin-bottom: 30px;">Digital menu is clean, easy to read, and provides an interactive experience for diners. Custom Digital Menu Board Design Service for Restaurants, Contact Now</p>
-            <button onclick="contactNow()" style="background: white; color: orange; border: none; padding: 10px 20px; font-size: 1.2em; cursor: pointer; border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='orange'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='orange';">
+            <button onclick="contactNow()" style="background: rgb(239, 97, 25); color: rgb(253, 253, 253); border: none; padding: 10px 20px; font-size: 1.2em; font-weight:bold; cursor: pointer; border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='orange'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='orange';">
                 Contact Now
             </button>
         </div>
@@ -17,7 +17,7 @@
     </div>
 
     {{-- Completed Jobs Section --}}
-    <div class="completed-jobs" style="padding: 20px; text-align: center;">
+    <div class="completed-jobs" style="padding: 10px; text-align: center;">
         <h2 style="font-size: 1.5em; color: orange;">Our Completed Jobs</h2>
         <h1 style="font-size: 2em; margin-top: 10px;">Feature Projects</h1>
         <p style="font-size: 1.2em; margin-top: 20px; max-width: 900px; margin-left: auto; margin-right: auto;">
@@ -38,8 +38,8 @@
     </div>
 
     {{-- Animation Video Section --}}
-    <div class="animation-video" style="padding: 50px; text-align: center; background-color: #f9f9f9;">
-        <h2 style="font-size: 2em; margin-bottom: 20px;">Watch Our Animated Video Menu</h2>
+    <div class="animation-video" style="padding: 10px; text-align: center; background-color: #f9f9f9;">
+        <h2 style="font-size: 1.2em; margin-bottom: 20px;">Watch Our Animated Video Menu</h2>
         <video controls style="width: 100%; max-width: 100%; height: auto; object-fit: contain;">
             <source src="/home/assets/images/dmb/digitalboard/vid.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -47,11 +47,11 @@
     </div>
 
     {{-- Testimonials Section --}}
-    <div class="testimonials" style="padding: 50px; text-align: center; background-color: #e6e6e6;">
+    <div class="testimonials" style="padding: 10px; margin-top:10px; text-align: center; background-color: #e6e6e6;">
         <h2 style="font-size: 2em; margin-bottom: 20px;">What Our Clients Say</h2>
         <div class="testimonial-slider" style="display: flex; overflow-x: scroll; gap: 20px; padding: 20px;">
             @foreach ($testimonials as $testimonial)
-                <div style="min-width: 500px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                <div style="min-width: 300px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                     <p style="font-size: 1.2em;">{{ $testimonial['message'] }}</p>
                     <strong>- {{ $testimonial['name'] }}</strong>
                 </div>

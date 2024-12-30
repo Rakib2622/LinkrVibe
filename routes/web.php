@@ -31,6 +31,9 @@ Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::post('/contact', [HomeController::class, 'submitContact'])->name('contact.submit');
 
+Route::post('/newsletter/subscribe', [HomeController::class, 'subscribeNewsletter'])->name('newsletter.subscribe');
+
+
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/privacy',[HomeController::class, 'privacy'])->name('privacy');
 Route::get('/support',[HomeController::class, 'support'])->name('support');
@@ -91,6 +94,13 @@ Route::middleware(['auth','verified', 'role:admin'])->prefix('admin')->name('adm
     Route::get('/contacts', [AdminController::class, 'showContacts'])->name('contacts.index'); // Show all contact messages
     Route::get('/contacts/{id}', [AdminController::class, 'viewContact'])->name('contacts.view'); // View a specific contact message
     Route::post('/contacts/{id}/reply', [AdminController::class, 'replyContact'])->name('contacts.reply'); // Reply to a specific contact message
+
+    //newsletter
+    // Newsletter Management Routes
+    Route::get('/newsletters', [AdminController::class, 'newsletterList'])->name('newsletters.index'); // Show all newsletter subscribers
+    Route::get('/newsletters/send', [AdminController::class, 'sendNewsletterForm'])->name('newsletters.sendForm'); // Show the form to send newsletters
+    Route::post('/newsletters/send', [AdminController::class, 'sendNewsletter'])->name('newsletters.send'); // Send newsletters to all subscribers
+
 
     // Product Management Routes
     Route::get('/products', [AproductController::class, 'index'])->name('products.index'); // Show all products

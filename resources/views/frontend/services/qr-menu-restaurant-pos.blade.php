@@ -1,6 +1,6 @@
 @include('frontend.partial.header')
 
-<div class="slider" style="display: flex; align-items: center; background: linear-gradient(to right, rgb(126, 201, 224), white); padding: 50px;">
+<div class="slider" style="display: flex; align-items: center; background: linear-gradient(to right, rgb(255, 255, 255), white); padding: 10px;">
     <div class="slider-text" style="flex: 1; color: white;">
         <h3 style="font-size: 2em; font-family: cursive; margin-bottom: 20px;">Complete POS & Table Ordering System!</h3>
         <h1 style="font-size: 2.5em; font-weight: bold; margin-bottom: 20px;">NFC & QR Code Tabletop Menus</h1>
@@ -9,14 +9,14 @@
         </p>
         <button 
             onclick="contactNow()" 
-            style="background: white; color: rgb(0, 183, 255); border: none; padding: 10px 20px; font-size: 1.2em; cursor: pointer; border-radius: 8px; transition: all 0.3s ease;" 
+            style="background: rgb(233, 104, 24); color: rgb(248, 248, 248); border: none; padding: 10px 20px; font-size: 1.2em; font-weight:bold; cursor: pointer; border-radius: 8px; transition: all 0.3s ease;" 
             onmouseover="this.style.background='orange'; this.style.color='white';" 
             onmouseout="this.style.background='white'; this.style.color='orange';">
             Contact Now
         </button>
         <button 
             onclick="tryDemo()" 
-            style="background: white; color: rgb(0, 208, 255); border: none; padding: 10px 20px; font-size: 1.2em; cursor: pointer; border-radius: 8px; margin-left: 10px; transition: all 0.3s ease;" 
+            style="background: rgb(47, 137, 2); color: rgb(249, 253, 254); border: none; padding: 10px 20px; font-size: 1.2em; font-weight:bold; cursor: pointer; border-radius: 8px; margin-left: 10px; transition: all 0.3s ease;" 
             onmouseover="this.style.background='orange'; this.style.color='white';" 
             onmouseout="this.style.background='white'; this.style.color='orange';">
             Try Demo
